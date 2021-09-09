@@ -45,6 +45,11 @@ class HomePage extends StatelessWidget {
       ),
     ];
 
+
+    var selectedPolygon = <SelectedPolygon> [
+
+    ];
+
     return Scaffold(
       appBar: AppBar(title: Text('Home')),
       drawer: buildDrawer(context, route),
@@ -59,8 +64,8 @@ class HomePage extends StatelessWidget {
             Flexible(
               child: FlutterMap(
                 options: MapOptions(
-                  center: LatLng(51.5, -0.09),
-                  zoom: 5.0,
+                  center: LatLng(38.950474, -3.334317),
+                  zoom: 15.0,
                 ),
                 layers: [
                   TileLayerOptions(
@@ -72,7 +77,8 @@ class HomePage extends StatelessWidget {
                     // NetworkTileProvider or CachedNetworkTileProvider
                     tileProvider: NonCachingNetworkTileProvider(),
                   ),
-                  MarkerLayerOptions(markers: markers)
+                  MarkerLayerOptions(markers: markers),
+                  SelectedPolygonLayerOptions(polygons: selectedPolygon)
                 ],
               ),
             ),
